@@ -1,79 +1,90 @@
-# Identifying-Entities-in-Healthcare-Data
 
-Problem Statement
-Let's consider a hypothetical example of a health tech company called 'BeHealthy'. Suppose 'BeHealthy' aims to connect the medical communities with millions of patients across the country.
+# Project Name
+Lending Club case study
 
-'BeHealthy' has a web platform that allows doctors to list their services and manage patient interactions and provides services for patients such as booking interactions with doctors and ordering medicines online. Here, doctors can easily organise appointments, track past medical records and provide e-prescriptions.
 
-So, companies like 'BeHealthy' are providing medical services, prescriptions and online consultations and generating huge data day by day.
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Conclusions](#conclusions)
+* [Acknowledgements](#acknowledgements)
 
-Let's take a look at the following snippet of medical data that may be generated when a doctor is writing notes to his/her patient or as a review of a therapy that he or she has done.
+<!-- You can include any other section that is pertinent to your problem -->
 
-" The patient was a 62-year-old man with squamous cell lung cancer, which was first successfully treated by a combination of radiation therapy and chemotherapy."
+## General Information
+The consumer finance company facilitating personal loans, business loans, and financing of medical procedures. Lending loans to ‘risky’ applicants is the largest source of financial loss (called credit loss). Credit loss is the amount of money lost by the lender when the borrower refuses to pay or runs away with the money owed. In other words, borrowers who default cause the largest amount of loss to the lenders.
 
-As you can see in this text, a person with a non-medical background cannot understand the various medical terms. We have taken a simple sentence from a medical data set to understand the problem and where you can understand the terms 'cancer' and 'chemotherapy'.
+The company wants to understand the driving factors (or driver variables) behind loan default, i.e. the variables which are strong indicators of default.  The company can utilise this knowledge for its portfolio and risk assessment. 
 
-Suppose you have been given such a data set in which a lot of text is written related to the medical domain. As you can see in the dataset, there are a lot of diseases that can be mentioned in the entire dataset and their related treatments are also mentioned implicitly in the text, which you saw in the aforementioned example that the disease mentioned is cancer and its treatment can be identified as chemotherapy using the sentence.
+We need to identify these risky loan applicants, then such loans can be reduced thereby cutting down the amount of credit loss. Identification of such applicants using EDA is the aim of this case study.
 
-But, note that it is not explicitly mentioned in the dataset about the diseases and their treatment, but somehow, you can build an algorithm to map the diseases and their respective treatment.
 
-Suppose you have been asked to determine the disease name and its probable treatment from the dataset and list it out in the form of a table or a dictionary like this.
+<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
-After discussing the problem given above, you need to build a custom NER to get the list of diseases and their treatment from the dataset.
+## Conclusions
+Result:- Univariate Analysis
+Created below graph:-
+	Average distribution of loans across category and experience level
+	Distribution of loans across category and dti
+	Distribution of loans across category and loan to annual income
+	Distribution of loans across category and Grades
 
-Let's first download the dataset given below.
+Result:- bivariate Analysis
+Created below graph:-
+	Distribution of Verified and Not verified Source Income on DTI
+	Distribution of Verified and Not verified Source Income on Loan to Annual Income
+	Distribution of Verified and not verified Source Income on Experience Level
+	Distribution of Verified and not verified Source Income on Grades
+	Distribution of Rented, Mortgaged, Owned   asset ownership on DTI
+	Distribution of Rented, Mortgaged, Owned   asset ownership on loan to annual income ratio
+	Distribution of Rented, Mortgaged, Owned   asset ownership on experience level.
+	Distribution of Rented, Mortgaged, Owned   asset ownership on grades
 
-Link here:
 
-As you saw in the video given above, there are four datasets provided to you to process, which are as follows:
+Analysis :-
+    people with less experience have high chance of default.
+    People lying in medium dti range have high chances of default
+    People who have high loan to annual income ratio are at high risk of defaulting.
+    Grades B,Cand D are at high probablity of defaulting.
+    average default rate across all categories is 14.4%.
+    The number of loan applicants is increasing every year, 2011 being the highest. 
+    People with 1 year and 10 year experience are taking loans more frequently. 
+    Top 6 loan category:- debt consolidation credit card other home improvement major purchase small business
+    People with less experience have high chance of default.
+    People lying in medium dti range have high chances of default
+    People who have high loan to annual income ratio are at high risk of defaulting.
+    Grades B, C and D are at high probability of defaulting.
+    For verified source of income. High loan to income ratio has highest probability of defaulting.
+    For verified and not verified source of income. The Junior experience level are more towards defaulting.
+    For rented and house owner. More the loan to income ratio, more the chances of defaulting.
 
-train_sent
-test_sent
-train_label
-test_label
-You have the train and the test datasets; the train dataset is used to train the CRF model, and the test dataset is used to evaluate the built model.
+  
 
-First, you will understand the ' train_sent' and the ' test_sent' datasets. Let's take a look at the structure of these datasets using the image provided below.
 
-Here, you need to understand that each word in this dataset is provided in a single line. So, first, you need to club all these words together to form the sentences. Moreover, there are blank lines given in the dataset that have been highlighted in the image given above. These blank lines indicate that a new sentence is starting from the next line onwards to the next blank line.
 
-In the image provided above, you need to make the sentences in the following way:
+<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
-Sentence1: …using a Spearman-rank Correlation
 
-Sentence2: This relationship should be taken into account when interpreting the AFI as a measure of fetal well-being.
+## Technologies Used
+Jupyter notebook
+Python 3
+Library:-
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import datetime
 
-Sentence3: The study population…
+<!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
 
-...and so on.
 
-You can also refer to the image given below to get a better idea on how to create sentences from words.
 
-In this 'train_sent' dataset, there are a total of 2,599 sentences when you form the sentences from the words. Similarly, there are a total of 1,056 sentences in the 'test_sent' dataset when you form the sentences from the words.
+## Contact
+Created by santosh.assisi@gamil.com - feel free to contact me!
 
-Now, let's take a look at the next datasets that are named ' train_label' and ' test_label'.
 
-The above dataset is about the labels corresponding to the diseases and the treatment. There are three labels that have been used in this dataset: O, D and T, which are corresponding to 'Other', 'Disease' and 'Treatment', respectively.
+<!-- Optional -->
+<!-- ## License -->
+<!-- This project is open source and available under the [... License](). -->
 
-These labels correspond to each word that is available in the 'train_sent' and 'test_sent' datasets. So, there is one-to-one mapping of each label available in the 'train_label' and 'test_label' datasets with the words that are available in the 'train_sent' and 'test_sent' datasets, respectively. You need to again create the lines of labels corresponding to each sentence in the 'train_sent' and the 'test_sent' datasets as shown below.
-
-So, in this 'train_label' dataset, there are a total of 2,599 lines of labels when you form the lines from the label dataset. Similarly, there are a total of 1,056 lines of labels in the 'test_label' dataset when you form the lines from the label dataset.
-
-In this assignment, you need to perform the following broad steps:
-
-You need to process and modify the data into sentence format. This step has to be done for the 'train_sent' and 'train_label' datasets and for test datasets as well.
-After that, you need to define the features to build the CRF model.
-Then, you need to apply these features in each sentence of the train and the test dataset to get the feature values.
-Once the features are computed, you need to define the target variable and then build the CRF model.
-Then, you need to perform the evaluation using a test data set.
-After that, you need to create a dictionary in which diseases are keys and treatments are values.
-There are eight major tasks that we need to perform to complete it. They are as follows:
-
-Data preprocessing
-Concept identification
-Defining the features for CRF
-Getting the features words and sentences
-Defining input and target variables
-Building the model
-Evaluating the model
-Identifying the diseases and predicted treatment using a custom NER
+<!-- You don't have to include all sections - just the one's relevant to your project -->
