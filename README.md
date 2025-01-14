@@ -32,10 +32,6 @@ Suppose you have been asked to determine the disease name and its probable treat
 
 After discussing the problem given above, you need to build a custom NER to get the list of diseases and their treatment from the dataset.
 
-Let's first download the dataset given below.
-
-Link here:
-
 As you saw in the video given above, there are four datasets provided to you to process, which are as follows:
 
 train_sent
